@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Item {
+class Item : Codable {
     
     //TODO: Item need to check or unchecked boolean value
     var title : String = ""
