@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		743347F62370A26D00900E1D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 743347F42370A26D00900E1D /* DataModel.xcdatamodeld */; };
 		748ABBA0236F237300744CBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748ABB9F236F237300744CBA /* AppDelegate.swift */; };
 		748ABBA2236F237300744CBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748ABBA1236F237300744CBA /* SceneDelegate.swift */; };
 		748ABBA4236F237300744CBA /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748ABBA3236F237300744CBA /* ToDoListViewController.swift */; };
 		748ABBA7236F237300744CBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 748ABBA5236F237300744CBA /* Main.storyboard */; };
 		748ABBA9236F237600744CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 748ABBA8236F237600744CBA /* Assets.xcassets */; };
 		748ABBAC236F237600744CBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 748ABBAA236F237600744CBA /* LaunchScreen.storyboard */; };
-		748ABBB5236F49BE00744CBA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748ABBB4236F49BE00744CBA /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		743347F52370A26D00900E1D /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		748ABB9C236F237300744CBA /* TodoIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		748ABB9F236F237300744CBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		748ABBA1236F237300744CBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -25,7 +26,6 @@
 		748ABBA8236F237600744CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		748ABBAB236F237600744CBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		748ABBAD236F237600744CBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		748ABBB4236F49BE00744CBA /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,7 @@
 		748ABBB3236F499D00744CBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				748ABBB4236F49BE00744CBA /* Item.swift */,
+				743347F42370A26D00900E1D /* DataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,7 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				748ABBB5236F49BE00744CBA /* Item.swift in Sources */,
+				743347F62370A26D00900E1D /* DataModel.xcdatamodeld in Sources */,
 				748ABBA4236F237300744CBA /* ToDoListViewController.swift in Sources */,
 				748ABBA0236F237300744CBA /* AppDelegate.swift in Sources */,
 				748ABBA2236F237300744CBA /* SceneDelegate.swift in Sources */,
@@ -366,6 +366,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		743347F42370A26D00900E1D /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				743347F52370A26D00900E1D /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 743347F52370A26D00900E1D /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 748ABB94236F237300744CBA /* Project object */;
 }
