@@ -11,11 +11,14 @@ import CoreData
 
 class CategoryViewController: UITableViewController {
     
-    var categoryArray = ["Spesa", "Compleanno", "Cucina"]
+    var categoryArray = [Category]()
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadCategory()
     }
     
     //MARK: - TableView Datasource Methods
@@ -30,13 +33,36 @@ class CategoryViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
         
-        cell.textLabel?.text = categoryArray[indexPath.row]
+        cell.textLabel?.text = categoryArray[indexPath.row].name
         
         return cell
         
     }
 
     //MARK: - Data Manipulation Methods
+    
+    func saveCategory() {
+        
+        do {
+            try context.save()
+        } catch {
+            print("Error saving category \(error)")
+        }
+        
+        tableView.reloadData()
+        
+    }
+    
+    func loadCategory(with request: NSFetchRequest<Category> = Category.fetchRequest()) {
+
+        do {
+            categoryArray = try context.fetch(request)
+        } catch {
+            print("Error loading caregories from context \(error)")
+        }
+        
+        tableView.reloadData()
+    }
 
     
     //MARK: - Add New Categories
@@ -50,9 +76,11 @@ class CategoryViewController: UITableViewController {
         let action = UIAlertAction(title: "Add Category", style: .default) { (action) in
             
             //What will happen once the user clicks tha Add Category button on our UIAlert
-            self.categoryArray.append(textField.text!)
+            let newCategory = Category(context: self.context)
+            newCategory.name = textField.text!
+            self.categoryArray.append(newCategory)
             
-            self.tableView.reloadData()
+            self.saveCategory()
             
         }
         
@@ -72,9 +100,19 @@ class CategoryViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        performSegue(withIdentifier: "goToItems", sender: self)
+        
         print(categoryArray[indexPath.row])
         
-        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destinationVC = segue.destination as! ToDoListViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedCategory = categoryArray[indexPath.row]
+        }
         
     }
     
