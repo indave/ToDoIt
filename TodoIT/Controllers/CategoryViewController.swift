@@ -102,8 +102,6 @@ class CategoryViewController: UITableViewController {
         
         performSegue(withIdentifier: "goToItems", sender: self)
         
-        print(categoryArray[indexPath.row])
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
