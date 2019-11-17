@@ -2,11 +2,11 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Zv-6u-Y3J">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ToDoIT-->
+        <!--List-->
         <scene sceneID="VV2-fj-7nM">
             <objects>
                 <tableViewController id="1Yh-m9-U8Q" customClass="ToDoListViewController" customModule="TodoIT" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,7 +37,7 @@
                             <outlet property="delegate" destination="1Yh-m9-U8Q" id="Pgt-bO-cV7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="ToDoIT" id="LoC-L1-rZ1">
+                    <navigationItem key="navigationItem" title="List" id="LoC-L1-rZ1">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="92g-qi-gpH">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -50,7 +50,7 @@
             </objects>
             <point key="canvasLocation" x="2182" y="135"/>
         </scene>
-        <!--Category View Controller-->
+        <!--Todo IT!-->
         <scene sceneID="Cdl-PM-HSb">
             <objects>
                 <tableViewController id="KF3-QV-2pa" customClass="CategoryViewController" customModule="TodoIT" customModuleProvider="target" sceneMemberID="viewController">
@@ -73,7 +73,7 @@
                             <outlet property="delegate" destination="KF3-QV-2pa" id="z6M-QZ-k3M"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="6NJ-gw-UBb">
+                    <navigationItem key="navigationItem" title="Todo IT!" id="6NJ-gw-UBb">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2Or-6C-FnM">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
