@@ -8,11 +8,13 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
-class ToDoListViewController: UITableViewController {
+class ToDoListViewController: SwipeViewController {
+    
+    let realm = try! Realm()
     
     var todoItems : Results<Item>?
-    let realm = try! Realm()
     
     var selectedCategory : Category? {
         didSet {
@@ -25,6 +27,8 @@ class ToDoListViewController: UITableViewController {
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
+        tableView.separatorStyle = .none
+        
     }
 
     //MARK - Tableview Datasource Methods
@@ -35,10 +39,20 @@ class ToDoListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+//        
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
         
         if let item = todoItems?[indexPath.row] {
             cell.textLabel?.text = item.title
+            
+            if let itemColor = UIColor(hexString: selectedCategory!.color)?.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(todoItems!.count)) {
+                cell.backgroundColor = itemColor
+                cell.textLabel?.textColor = ContrastColorOf(itemColor, returnFlat: true)
+            }
+            
+//            print("version 1 \(CGFloat(indexPath.row / todoItems!.count))")
+//            print("version 2: \(CGFloat(indexPath.row) / CGFloat(todoItems!.count))")
             
             // Ternary operator ==>
             // Value = condition ? valueIfTrue : valueIfFalse
@@ -50,6 +64,22 @@ class ToDoListViewController: UITableViewController {
         
         return cell
         
+    }
+    
+    //MARK: - Delete Data From Swipe
+    
+    override func updateModel(at indexPath: IndexPath) {
+        
+        if let itemForDeletion = todoItems?[indexPath.row] {
+            do {
+                try self.realm.write {
+                    self.realm.delete(itemForDeletion)
+                    print("Deleted item: \(indexPath.row)")
+                }
+            } catch {
+                print("Error deleting selected item \(error)")
+            }
+        }
     }
     
     //MARK - TableView Delegate Methods

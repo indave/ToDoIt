@@ -14,6 +14,8 @@ class SwipeViewController: UITableViewController, SwipeTableViewCellDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.rowHeight = 80.0
+        
     }
 
     //MARK: - Tableview Datasource Methods
@@ -54,7 +56,7 @@ class SwipeViewController: UITableViewController, SwipeTableViewCellDelegate {
     func updateModel(at indexPath: IndexPath) {
         // Update our data model
         
-        print("Item deletede form superclass")
+        print("Item deletede from superclass")
         
     }
 
